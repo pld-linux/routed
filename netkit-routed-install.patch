@@ -1,0 +1,11 @@
+--- netkit-routed-0.16/ripquery/Makefile.jbj	Sat Jul 31 23:34:39 1999
++++ netkit-routed-0.16/ripquery/Makefile	Tue Dec 21 15:15:40 1999
+@@ -9,7 +9,7 @@
+ 	$(CC) $(LDFLAGS) $^ $(LIBS) -o $@
+ 
+ install: ripquery
+-	install -o root -g root -m $(BINMODE) ripquery $(INSTALLROOT)$(SBINDIR)
++	install -s -m $(BINMODE) ripquery $(INSTALLROOT)$(SBINDIR)
+ 	install -m$(MANMODE) ripquery.8 $(INSTALLROOT)$(MANDIR)/man8
+ clean:
+ 	rm -f $(OBJS) ripquery

@@ -1,0 +1,13 @@
+--- netkit-routed-0.16/routed/main.c.fork	Mon Jan  3 15:54:42 2000
++++ netkit-routed-0.16/routed/main.c	Mon Jan  3 15:56:54 2000
+@@ -113,8 +113,8 @@
+ 	if (debug == 0 && tflags == 0) {
+ 		switch (fork()) {
+ 			case -1: perror("fork"); exit(1);
+-			case 0: exit(0);  /* parent */
+-			default: break;   /* child */
++			case 0: break;  /* child */
++			default: exit(0);   /* parent */
+ 		}
+ 		close(0);
+ 		close(1);
