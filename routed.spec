@@ -4,7 +4,7 @@ Summary(fr):	Démon de routage RIP pour maintenante automatique de la table de ro
 Summary(tr):	RIP - otomatik yönlendirme protokolü
 Name:		routed
 Version:	0.17
-Release:	0
+Release:	1
 Copyright:	BSD
 Group:		Networking/Daemons
 Group(pl):	Sieciowe/Serwery
@@ -44,7 +44,7 @@ ve dinlediði RIP bilgilerine göre yönlendirme tablolarýný günceller.
 %patch0 -p1
 
 %build
-./configure
+./configure --with-c-compiler=gcc
 %{__make} CFLAGS="$RPM_OPT_FLAGS"
 
 %install
