@@ -38,6 +38,13 @@ tables de routage de TCP/IP. RIP est le plus simple d'entre eux et ce
 paquetage contient un démon qui diffuse la notification de routage RIP
 et gère les paquets RIP entrants.
 
+%description -l pl
+routed to demon routingu obs³uguj±cy przychodz±cy ruch RIP i
+rozsy³aj±cy wychodz±cy ruch RIP po trasach w sieci, aby zarz±dzaæ
+aktualnymi tablicami routingu. Te tablice routing to podstawa dla
+komputera pod³±czonego do wielu sieci, który dziêki nim wie, dok±d
+pakiety powinny byæ wysy³ane.
+
 %description -l tr
 Yönlendirme tablolarýnýn güncellenmesi için bir dizi yöntem vardýr.
 RIP bunlarýn en basitleri arasýnda yer alýr. Bu sunucu RIP bilgilerini
