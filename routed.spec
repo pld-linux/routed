@@ -12,7 +12,7 @@ Patch2:		netkit-routed-0.10-ifreq.patch
 Patch3:		netkit-routed-0.10-compat21.patch
 Prereq:		/sbin/chkconfig
 Requires:	rc-scripts
-Buildroot:	/var/tmp/%{name}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The routed routing daemon handles incoming RIP traffic and broadcasts
