@@ -68,10 +68,20 @@ install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/routed
 rm -rf $RPM_BUILD_ROOT
 
 %post
-DESC="routed server"; %chkconfig_add
+/sbin/chkconfig --add routed
+if [ -f /var/lock/subsys/routed ]; then
+	/etc/rc.d/init.d/routed restart 1>&2
+else
+	echo "Type \"/etc/rc.d/init.d/routed start\" to start routed server" 1>&2
+fi
 	
 %postun
-%chkconfig_del
+if [ "$1" = "0" ]; then
+	if [ -f /var/lock/subsys/routed ]; then
+		/etc/rc.d/init.d/routed stop 1>&2
+	fi
+	/sbin/chkconfig --del routed
+fi
 
 %files
 %defattr(644,root,root,755)
