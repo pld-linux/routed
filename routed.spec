@@ -32,14 +32,14 @@ The routed package should be installed on any networked machine.
 %patch3 -p1 -b .compat21
 
 %build
-make RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
+%{__make} RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/usr/sbin
 mkdir -p $RPM_BUILD_ROOT/usr/man/man8
 mkdir -p $RPM_BUILD_ROOT/etc/rc.d/init.d
-make INSTALLROOT=$RPM_BUILD_ROOT install
+%{__make} INSTALLROOT=$RPM_BUILD_ROOT install
 install -m 755 $RPM_SOURCE_DIR/routed.init $RPM_BUILD_ROOT/etc/rc.d/init.d/routed
 
 %clean
