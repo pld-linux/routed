@@ -3,16 +3,15 @@ Summary(de):	RIP-Routing-Dämon für automatische Route-Tabellenverwaltung
 Summary(fr):	Démon de routage RIP pour maintenante automatique de la table de routage
 Summary(tr):	RIP - otomatik yönlendirme protokolü
 Name:		routed
-Version:	0.16
-Release:	6
+Version:	0.17
+Release:	0
 Copyright:	BSD
 Group:		Networking/Daemons
 Group(pl):	Sieciowe/Serwery
-Source0:	ftp://sunsite.unc.edu/pub/Linux/system/network/daemons/netkit-%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/netkit-%{name}-%{version}.tar.gz
 Source1:	routed.init
 Source2:	routed.sysconfig
-Patch0:		netkit-routed-fork.patch
-Patch1:		netkit-routed-install.patch
+Patch0:		netkit-routed-install.patch
 Prereq:		/sbin/chkconfig
 Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -41,9 +40,8 @@ bunlarýn en basitleri arasýnda yer alýr. Bu sunucu RIP bilgilerini yayýnlar
 ve dinlediði RIP bilgilerine göre yönlendirme tablolarýný günceller.
 
 %prep
-%setup -q -n netkit-routed-0.16
+%setup -q -n netkit-routed-%{version}
 %patch0 -p1
-%patch1 -p1
 
 %build
 ./configure
