@@ -28,7 +28,7 @@ fi
 # Get routed config
 [ -f /etc/sysconfig/routed ] && . /etc/sysconfig/routed
 
-
+RETVAL=0
 # See how we were called.
 case "$1" in
   start)
@@ -38,13 +38,9 @@ case "$1" in
 		case $EXPORT_GATEWAY in true|yes) export=-g ;; *) export= ;; esac
 		daemon routed $silent $export
 		RETVAL=$?
-		if [ $RETVAL -eq 0 ]; then
-			touch /var/lock/subsys/routed
-			RETVAL=1
-		fi
+		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/routed
 	else
 		msg_already_running routed
-		exit 1
 	fi
 	;;
   stop)
@@ -54,19 +50,20 @@ case "$1" in
 		rm -f /var/lock/subsys/routed >/dev/null 2>&1
 	else
 		msg_not_running routed
-		exit 1
 	fi	
 	;;
   status)
 	status routed
+	exit $?
 	;;
-  reload|restart|force-reload)
+  restart|force-reload)
 	$0 stop
 	$0 start
+	exit $?
 	;;
   *)
-	msg_usage "$0 {start|stop|restart|reload|force-reload|status}"
-	exit 1
+	msg_usage "$0 {start|stop|restart|force-reload|status}"
+	exit 3
 esac
 
 exit $RETVAL
