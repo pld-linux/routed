@@ -7,7 +7,7 @@ Summary(pt_BR):	Servidor RIP para manutenção automática de tabela de rotas
 Summary(tr):	RIP - otomatik yönlendirme protokolü
 Name:		routed
 Version:	0.17
-Release:	10
+Release:	11
 License:	BSD
 Group:		Networking/Daemons
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/netkit-%{name}-%{version}.tar.gz
