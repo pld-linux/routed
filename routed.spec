@@ -1,11 +1,13 @@
 Summary:	The routing daemon which maintains routing tables
 Summary(de):	RIP-Routing-Dämon für automatische Route-Tabellenverwaltung
+Summary(es):	Servidor RIP para manutención automática de tabla de rutas
 Summary(fr):	Démon de routage RIP pour maintenante automatique de la table de routage
 Summary(pl):	Demon zarz±dzaj±cy tablicami rutingu
+Summary(pt_BR):	Servidor RIP para manutenção automática de tabela de rotas
 Summary(tr):	RIP - otomatik yönlendirme protokolü
 Name:		routed
 Version:	0.17
-Release:	2
+Release:	10
 License:	BSD
 Group:		Networking/Daemons
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/netkit-%{name}-%{version}.tar.gz
@@ -30,6 +32,12 @@ einfachste ist. Dieses Paket enthält einen Dämon, der
 RIP-Routing-Meldungen rundsendet und hereinkommende RIP-Pakete
 abfertigt.
 
+%description -l es
+Varios protocolos están disponibles para actualización`` automática de
+tablas de rutado TCP/IP. RIP es el más sencillo de estos, y este
+paquete incluye un servidor que transmite y recibe notificaciones de
+rutado en este protocolo.
+
 %description -l fr
 Il existe de nombreux protocoles pour la mise à jour automatique des
 tables de routage de TCP/IP. RIP est le plus simple d'entre eux et ce
@@ -42,6 +50,12 @@ rozsy³aj±cy wychodz±cy ruch RIP po trasach w sieci, aby zarz±dzaæ
 aktualnymi tablicami routingu. Te tablice routing to podstawa dla
 komputera pod³±czonego do wielu sieci, który dziêki nim wie, dok±d
 pakiety powinny byæ wysy³ane.
+
+%description -l pt_BR
+Vários protocolos estão disponíveis para atualização automática de
+tabelas de roteamento TCP/IP. O RIP é o mais simples destes, e este
+pacote inclui um servidor que transmite e recebe notificações de
+roteamento neste protocolo.
 
 %description -l tr
 Yönlendirme tablolarýnýn güncellenmesi için bir dizi yöntem vardýr.
