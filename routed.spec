@@ -79,7 +79,7 @@ if [ -f /var/lock/subsys/routed ]; then
 else
 	echo "Type \"/etc/rc.d/init.d/routed start\" to start routed server" 1>&2
 fi
-	
+
 %preun
 if [ "$1" = "0" ]; then
 	if [ -f /var/lock/subsys/routed ]; then
