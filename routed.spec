@@ -57,4 +57,4 @@ fi
 %defattr(-,root,root)
 /usr/sbin/routed
 /usr/man/man8/routed.8
-/etc/rc.d/init.d/routed
+%attr(754,root,root) /etc/rc.d/init.d/routed
