@@ -13,7 +13,7 @@ Source1:	routed.init
 Source2:	routed.sysconfig
 Patch0:		netkit-routed-install.patch
 Prereq:		/sbin/chkconfig
-Requires:	rc-scripts
+Prereq:		rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
