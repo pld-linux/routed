@@ -34,8 +34,22 @@ case "$1" in
   start)
 	if [ ! -f /var/lock/subsys/routed ]; then
 		msg_starting "routed (RIP)"
-		case $SILENT in true|yes) silent=-q ;; *) silent= ;; esac
-		case $EXPORT_GATEWAY in true|yes) export=-g ;; *) export= ;; esac
+		case $SILENT in
+		  true|yes)
+			silent=-q
+			;;
+		  *)
+			silent=
+			;;
+		esac
+		case $EXPORT_GATEWAY in
+		  true|yes)
+			export=-g
+			;;
+		  *)
+			export=
+			;;
+		esac
 		daemon routed $silent $export
 		RETVAL=$?
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/routed
