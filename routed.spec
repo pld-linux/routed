@@ -1,15 +1,13 @@
 Summary:	The routing daemon which maintains routing tables.
 Name:		routed
-Version:	0.10
-Release:	14
+Version:	0.16
+Release:	6
 Copyright:	BSD
 Group:		System Environment/Daemons
-Source:		ftp://sunsite.unc.edu/pub/Linux/system/network/daemons/netkit-routed-0.10.tar.gz
+Source0:	ftp://sunsite.unc.edu/pub/Linux/system/network/daemons/netkit-%{name}-%{version}.tar.gz
 Source1:	routed.init
-Patch:		netkit-routed-0.10-misc.patch
-Patch1:		netkit-routed-0.10-trace.patch
-Patch2:		netkit-routed-0.10-ifreq.patch
-Patch3:		netkit-routed-0.10-compat21.patch
+Patch0:		netkit-routed-fork.patch
+Patch1:		netkit-routed-install.patch
 Prereq:		/sbin/chkconfig
 Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -23,24 +21,26 @@ networked computer, so that it knows where packets need to be sent.
 The routed package should be installed on any networked machine.
 
 %prep
-%setup -q -n netkit-routed-0.10
-%patch0 -p1 -b .misc
-%patch1 -p1 -b .trace
-%ifarch alpha
-%patch2 -p1 -b .ifreq
-%endif
-%patch3 -p1 -b .compat21
+%setup -q -n netkit-routed-0.16
+%patch0 -p1
+%patch1 -p1
 
 %build
-%{__make} RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
+./configure
+%{__make} CFLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/usr/sbin
-mkdir -p $RPM_BUILD_ROOT/usr/man/man8
+mkdir -p $RPM_BUILD_ROOT{%{_sbindir},%{_bindir},%{_mandir}/man8}
 mkdir -p $RPM_BUILD_ROOT/etc/rc.d/init.d
-%{__make} INSTALLROOT=$RPM_BUILD_ROOT install
-install -m 755 $RPM_SOURCE_DIR/routed.init $RPM_BUILD_ROOT/etc/rc.d/init.d/routed
+
+%{__make} install \
+	INSTALLROOT=$RPM_BUILD_ROOT \
+	MANDIR=%{_mandir}
+
+install -m 755 %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/routed
+
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -54,7 +54,7 @@ if [ $1 = 0 ]; then
 fi
 
 %files
-%defattr(-,root,root)
-/usr/sbin/routed
-/usr/man/man8/routed.8
+%defattr(644,root,root,755)
 %attr(754,root,root) /etc/rc.d/init.d/routed
+%attr(755,root,root) %{_sbindir}/routed
+%{_mandir}/man8/*
