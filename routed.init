@@ -1,0 +1,57 @@
+#! /bin/sh
+#
+# chkconfig: - 55 55
+# description: The routed daemon allows for automatic IP router table \
+#	       updated via the RIP protocol. While RIP is widely used \
+#              on small networks, more complex routing protocls are \
+#              needed for complex networks.
+# processname: routed
+# config: /etc/sysconfig/routed
+# config: /etc/gateways
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Get config.
+. /etc/sysconfig/network
+
+# Check that networking is up.
+if [ ${NETWORKING} = "no" ]
+then
+	exit 0
+fi
+
+# Get routed config
+[ -f /etc/sysconfig/routed ] && . /etc/sysconfig/routed
+
+# See how we were called.
+case "$1" in
+  start)
+	echo -n "Starting routed (RIP) services: "
+	case $SILENT in true|yes) silent=-q ;; *) silent= ;; esac
+	case $EXPORT_GATEWAY in true|yes) export=-g ;; *) export= ;; esac
+	daemon routed $silent $export
+
+	echo
+	touch /var/lock/subsys/routed
+	;;
+  stop)
+	echo -n "Stopping routed (RIP) services: "
+	killproc routed
+
+	echo
+	rm -f /var/lock/subsys/routed
+	;;
+  status)
+	status routed
+	;;
+  restart|reload)
+	$0 stop
+	$0 start
+	;;
+  *)
+	echo "Usage: routed {start|stop|status|restart|reload}"
+	exit 1
+esac
+
+exit 0
