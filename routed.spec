@@ -1,4 +1,7 @@
-Summary:	The routing daemon which maintains routing tables.
+Summary:	The routing daemon which maintains routing tables
+Summary(de):	RIP-Routing-Dämon für automatische Route-Tabellenverwaltung
+Summary(fr):	Démon de routage RIP pour maintenante automatique de la table de routage
+Summary(tr):	RIP - otomatik yönlendirme protokolü
 Name:		routed
 Version:	0.16
 Release:	6
@@ -20,7 +23,22 @@ outgoing RIP traffic about network traffic routes, in order to maintain
 current routing tables.  These routing tables are essential for a
 networked computer, so that it knows where packets need to be sent.
 
-The routed package should be installed on any networked machine.
+%description -l de
+Es gibt eine Auswahl von Protokollen für die automatische Aktualisierung 
+von TCP/IP-Routing-Tabellen, von denen RIP das einfachste ist. Dieses 
+Paket enthält einen Dämon, der RIP-Routing-Meldungen rundsendet und
+hereinkommende RIP-Pakete abfertigt.
+
+%description -l fr
+Il existe de nombreux protocoles pour la mise à jour automatique des
+tables de routage de TCP/IP. RIP est le plus simple d'entre eux et ce
+paquetage contient un démon qui diffuse la notification de routage RIP
+et gère les paquets RIP entrants.
+
+%description -l tr
+Yönlendirme tablolarýnýn güncellenmesi için bir dizi yöntem vardýr. RIP
+bunlarýn en basitleri arasýnda yer alýr. Bu sunucu RIP bilgilerini yayýnlar
+ve dinlediði RIP bilgilerine göre yönlendirme tablolarýný günceller.
 
 %prep
 %setup -q -n netkit-routed-0.16
@@ -33,8 +51,8 @@ The routed package should be installed on any networked machine.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT{%{_sbindir},%{_bindir},%{_mandir}/man8}
-mkdir -p $RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
+mkdir -p $RPM_BUILD_ROOT{%{_sbindir},%{_bindir},%{_mandir}/man8} \
+	$RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
 
 %{__make} install \
 	INSTALLROOT=$RPM_BUILD_ROOT \
