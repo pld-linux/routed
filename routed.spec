@@ -15,8 +15,8 @@ Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/netkit-%{name}-%{ver
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Patch0:		netkit-%{name}-install.patch
-Prereq:		/sbin/chkconfig
-Prereq:		rc-scripts
+PreReq:		rc-scripts
+Requires(post,preun):	/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -70,7 +70,8 @@ günceller.
 
 %build
 ./configure --with-c-compiler=gcc
-%{__make} CFLAGS="%{rpmcflags}"
+%{__make} \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
