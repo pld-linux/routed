@@ -32,8 +32,8 @@ case "$1" in
 		case $SILENT in true|yes) silent=-q ;; *) silent= ;; esac
 		case $EXPORT_GATEWAY in true|yes) export=-g ;; *) export= ;; esac
 		daemon routed $silent $export
-		RETVAL2=$?
-		if [ $RETVAL -eq 0 -a $RETVAL2 -eq 0 ]; then
+		RETVAL=$?
+		if [ $RETVAL -eq 0 ]; then
 			touch /var/lock/subsys/routed
 			RETVAL=1
 		fi
@@ -55,7 +55,7 @@ case "$1" in
   status)
 	status routed
 	;;
-  reload,restart,force-reload)
+  reload|restart|force-reload)
 	$0 stop
 	$0 start
 	;;
