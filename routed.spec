@@ -5,7 +5,7 @@ Summary(pl):	Demon zarz±dzaj±cy tablicami rutingu
 Summary(tr):	RIP - otomatik yönlendirme protokolü
 Name:		routed
 Version:	0.17
-Release:	1
+Release:	2
 License:	BSD
 Group:		Networking/Daemons
 Group(de):	Netzwerkwesen/Server
