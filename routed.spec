@@ -109,4 +109,5 @@ fi
 %attr(754,root,root) /etc/rc.d/init.d/routed
 %attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/sysconfig/routed
 %attr(755,root,root) %{_sbindir}/routed
+%attr(755,root,root) %{_sbindir}/ripquery
 %{_mandir}/man8/*
