@@ -64,7 +64,7 @@ case "$1" in
 		rm -f /var/lock/subsys/routed >/dev/null 2>&1
 	else
 		msg_not_running routed
-	fi	
+	fi
 	;;
   status)
 	status routed
