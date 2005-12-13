@@ -15,7 +15,7 @@ Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/netkit-%{name}-%{ver
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Patch0:		netkit-%{name}-install.patch
-PreReq:		rc-scripts
+Requires:	rc-scripts
 Requires(post,preun):	/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -65,7 +65,7 @@ yayýnlar ve dinlediði RIP bilgilerine göre yönlendirme tablolarýný
 günceller.
 
 %prep
-%setup -q -n netkit-routed-%{version}
+%setup -q -n netkit-%{name}-%{version}
 %patch0 -p1
 
 %build
@@ -107,7 +107,7 @@ fi
 %files
 %defattr(644,root,root,755)
 %attr(754,root,root) /etc/rc.d/init.d/routed
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/sysconfig/routed
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/routed
 %attr(755,root,root) %{_sbindir}/routed
 %attr(755,root,root) %{_sbindir}/ripquery
 %{_mandir}/man8/*
