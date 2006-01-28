@@ -7,7 +7,7 @@ Summary(pt_BR):	Servidor RIP para manutenção automática de tabela de rotas
 Summary(tr):	RIP - otomatik yönlendirme protokolü
 Name:		routed
 Version:	0.17
-Release:	11
+Release:	12
 License:	BSD
 Group:		Networking/Daemons
 Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/netkit-%{name}-%{version}.tar.gz
@@ -46,7 +46,7 @@ paquetage contient un démon qui diffuse la notification de routage RIP
 et gère les paquets RIP entrants.
 
 %description -l pl
-routed to demon routingu obs³uguj±cy przychodz±cy ruch RIP i
+Routed to demon routingu obs³uguj±cy przychodz±cy ruch RIP i
 rozsy³aj±cy wychodz±cy ruch RIP po trasach w sieci, aby zarz±dzaæ
 aktualnymi tablicami routingu. Te tablice routing to podstawa dla
 komputera pod³±czonego do wielu sieci, który dziêki nim wie, dok±d
