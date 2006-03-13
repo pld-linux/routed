@@ -15,8 +15,9 @@ Source0:	ftp://ftp.linux.org.uk/pub/linux/Networking/netkit/netkit-%{name}-%{ver
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 Patch0:		netkit-%{name}-install.patch
-Requires:	rc-scripts
+BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(post,preun):	/sbin/chkconfig
+Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -90,17 +91,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/chkconfig --add routed
-if [ -f /var/lock/subsys/routed ]; then
-	/etc/rc.d/init.d/routed restart 1>&2
-else
-	echo "Type \"/etc/rc.d/init.d/routed start\" to start routed server" 1>&2
-fi
+%service routed restart "routed server"
 
 %preun
 if [ "$1" = "0" ]; then
-	if [ -f /var/lock/subsys/routed ]; then
-		/etc/rc.d/init.d/routed stop 1>&2
-	fi
+	%service routed stop
 	/sbin/chkconfig --del routed
 fi
 
