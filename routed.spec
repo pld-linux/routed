@@ -1,10 +1,10 @@
 Summary:	The routing daemon which maintains routing tables
-Summary(de):	RIP-Routing-Dämon für automatische Route-Tabellenverwaltung
-Summary(es):	Servidor RIP para manutención automática de tabla de rutas
-Summary(fr):	Démon de routage RIP pour maintenante automatique de la table de routage
-Summary(pl):	Demon zarz±dzaj±cy tablicami rutingu
-Summary(pt_BR):	Servidor RIP para manutenção automática de tabela de rotas
-Summary(tr):	RIP - otomatik yönlendirme protokolü
+Summary(de.UTF-8):   RIP-Routing-DÃ¤mon fÃ¼r automatische Route-Tabellenverwaltung
+Summary(es.UTF-8):   Servidor RIP para manutenciÃ³n automÃ¡tica de tabla de rutas
+Summary(fr.UTF-8):   DÃ©mon de routage RIP pour maintenante automatique de la table de routage
+Summary(pl.UTF-8):   Demon zarzÄ…dzajÄ…cy tablicami rutingu
+Summary(pt_BR.UTF-8):   Servidor RIP para manutenÃ§Ã£o automÃ¡tica de tabela de rotas
+Summary(tr.UTF-8):   RIP - otomatik yÃ¶nlendirme protokolÃ¼
 Name:		routed
 Version:	0.17
 Release:	12
@@ -27,43 +27,43 @@ maintain current routing tables. These routing tables are essential
 for a networked computer, so that it knows where packets need to be
 sent.
 
-%description -l de
-Es gibt eine Auswahl von Protokollen für die automatische
+%description -l de.UTF-8
+Es gibt eine Auswahl von Protokollen fÃ¼r die automatische
 Aktualisierung von TCP/IP-Routing-Tabellen, von denen RIP das
-einfachste ist. Dieses Paket enthält einen Dämon, der
+einfachste ist. Dieses Paket enthÃ¤lt einen DÃ¤mon, der
 RIP-Routing-Meldungen rundsendet und hereinkommende RIP-Pakete
 abfertigt.
 
-%description -l es
-Varios protocolos están disponibles para actualización`` automática de
-tablas de rutado TCP/IP. RIP es el más sencillo de estos, y este
+%description -l es.UTF-8
+Varios protocolos estÃ¡n disponibles para actualizaciÃ³n`` automÃ¡tica de
+tablas de rutado TCP/IP. RIP es el mÃ¡s sencillo de estos, y este
 paquete incluye un servidor que transmite y recibe notificaciones de
 rutado en este protocolo.
 
-%description -l fr
-Il existe de nombreux protocoles pour la mise à jour automatique des
+%description -l fr.UTF-8
+Il existe de nombreux protocoles pour la mise Ã  jour automatique des
 tables de routage de TCP/IP. RIP est le plus simple d'entre eux et ce
-paquetage contient un démon qui diffuse la notification de routage RIP
-et gère les paquets RIP entrants.
+paquetage contient un dÃ©mon qui diffuse la notification de routage RIP
+et gÃ¨re les paquets RIP entrants.
 
-%description -l pl
-routed to demon routingu obs³uguj±cy przychodz±cy ruch RIP i
-rozsy³aj±cy wychodz±cy ruch RIP po trasach w sieci, aby zarz±dzaæ
+%description -l pl.UTF-8
+routed to demon routingu obsÅ‚ugujÄ…cy przychodzÄ…cy ruch RIP i
+rozsyÅ‚ajÄ…cy wychodzÄ…cy ruch RIP po trasach w sieci, aby zarzÄ…dzaÄ‡
 aktualnymi tablicami routingu. Te tablice routing to podstawa dla
-komputera pod³±czonego do wielu sieci, który dziêki nim wie, dok±d
-pakiety powinny byæ wysy³ane.
+komputera podÅ‚Ä…czonego do wielu sieci, ktÃ³ry dziÄ™ki nim wie, dokÄ…d
+pakiety powinny byÄ‡ wysyÅ‚ane.
 
-%description -l pt_BR
-Vários protocolos estão disponíveis para atualização automática de
-tabelas de roteamento TCP/IP. O RIP é o mais simples destes, e este
-pacote inclui um servidor que transmite e recebe notificações de
+%description -l pt_BR.UTF-8
+VÃ¡rios protocolos estÃ£o disponÃ­veis para atualizaÃ§Ã£o automÃ¡tica de
+tabelas de roteamento TCP/IP. O RIP Ã© o mais simples destes, e este
+pacote inclui um servidor que transmite e recebe notificaÃ§Ãµes de
 roteamento neste protocolo.
 
-%description -l tr
-Yönlendirme tablolarının güncellenmesi için bir dizi yöntem vardır.
-RIP bunların en basitleri arasında yer alır. Bu sunucu RIP bilgilerini
-yayınlar ve dinlediği RIP bilgilerine göre yönlendirme tablolarını
-günceller.
+%description -l tr.UTF-8
+YÃ¶nlendirme tablolarÄ±nÄ±n gÃ¼ncellenmesi iÃ§in bir dizi yÃ¶ntem vardÄ±r.
+RIP bunlarÄ±n en basitleri arasÄ±nda yer alÄ±r. Bu sunucu RIP bilgilerini
+yayÄ±nlar ve dinlediÄŸi RIP bilgilerine gÃ¶re yÃ¶nlendirme tablolarÄ±nÄ±
+gÃ¼nceller.
 
 %prep
 %setup -q -n netkit-%{name}-%{version}
