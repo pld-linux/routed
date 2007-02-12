@@ -1,10 +1,10 @@
 Summary:	The routing daemon which maintains routing tables
-Summary(de.UTF-8):   RIP-Routing-Dämon für automatische Route-Tabellenverwaltung
-Summary(es.UTF-8):   Servidor RIP para manutención automática de tabla de rutas
-Summary(fr.UTF-8):   Démon de routage RIP pour maintenante automatique de la table de routage
-Summary(pl.UTF-8):   Demon zarządzający tablicami rutingu
-Summary(pt_BR.UTF-8):   Servidor RIP para manutenção automática de tabela de rotas
-Summary(tr.UTF-8):   RIP - otomatik yönlendirme protokolü
+Summary(de.UTF-8):	RIP-Routing-Dämon für automatische Route-Tabellenverwaltung
+Summary(es.UTF-8):	Servidor RIP para manutención automática de tabla de rutas
+Summary(fr.UTF-8):	Démon de routage RIP pour maintenante automatique de la table de routage
+Summary(pl.UTF-8):	Demon zarządzający tablicami rutingu
+Summary(pt_BR.UTF-8):	Servidor RIP para manutenção automática de tabela de rotas
+Summary(tr.UTF-8):	RIP - otomatik yönlendirme protokolü
 Name:		routed
 Version:	0.17
 Release:	12
